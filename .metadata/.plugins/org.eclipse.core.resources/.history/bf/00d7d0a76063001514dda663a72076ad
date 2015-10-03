@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <!-- a SessionFactory instance listed as /jndi/name -->
+    <session-factory>
+        
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hibernate</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">swAN1301</property>
+        <property name="hibernate.connection.pool_size">1</property>
+
+        <!-- properties -->
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        
+        <property name="hibernate.show_sql">true</property>
+        
+        <mapping class="com.olivier.entity.User"/>
+        <mapping class="com.olivier.entity.Produit"/>
+
+	   <property name="hibernate.connection.provider_class">org.hibernate.cache.EhCacheProvider</property>
+	   <property name="hibernate.jdbc.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+       <property name="cache.use_query_cache">true</property> 
+       <!--  <property name="transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</property>
+        <property name="jta.UserTransaction">java:comp/UserTransaction</property> -->
+
+        <!-- mapping files 
+        <mapping resource="org/hibernate/auction/Item.hbm.xml"/>
+        <mapping resource="org/hibernate/auction/Bid.hbm.xml"/>
+        -->
+	   
+        <!-- cache settings -->
+       <!--  <class-cache class="org.hibernate.auction.Item" usage="read-write"/>
+        <class-cache class="org.hibernate.auction.Bid" usage="read-only"/>
+        <collection-cache collection="org.hibernate.auction.Item.bids" usage="read-write"/> -->
+
+    </session-factory>
+
+</hibernate-configuration>

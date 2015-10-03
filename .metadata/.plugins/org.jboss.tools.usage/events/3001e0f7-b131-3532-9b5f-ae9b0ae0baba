@@ -1,0 +1,11 @@
+#Sat Oct 03 11:28:54 CEST 2015
+vl=How many times the 'Finish' button pressed during the day
+l=Wizard class name
+ct=jbt
+d=1443864534656
+c=0
+cmp=usage
+a=finishWizard
+cl=org.eclipse.datatools.enablement.postgresql.internal.ui.NewConnectionProfileWizard
+v=2.0.2
+s=0
