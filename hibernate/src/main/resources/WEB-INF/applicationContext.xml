@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Middle tier application context definition for the image database.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- Configurer that replaces ${...} placeholders with values from a properties file -->
+	<!-- (in this case, JDBC-related settings for the dataSource definition below) -->
+	<!--<context:property-placeholder location="WEB-INF/jdbc.properties,WEB-INF/mail.properties"/> -->
+
+	<!-- Local C3P0 DataSource that works in any environment -->
+	<!-- See JPetStore for an example of using Apache Commons DBCP as alternative -->
+	<!-- (Both DataSource implementations have a "close" method to be called on shutdown) -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDatasource">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/Hibernate"/>
+		<property name="user" value="root"/>
+		<property name="password" value="swAN1301"/>
+	</bean>
+</beans>
